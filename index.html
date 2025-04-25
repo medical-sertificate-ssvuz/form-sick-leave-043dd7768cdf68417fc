@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sog‘liqni saqlash vazirligi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            width: 320px;
+            max-width: 320px;
+        }
+
+        .logo {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4285f4;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://i.pinimg.com/originals/f1/27/eb/f127eb794edf217133cd8459eb4d0f62.jpg" alt="O'zbekiston gerbi" class="logo">
+        <h2>O‘zbekiston Respublikasi Sog‘liqni Saqlash Vazirligi</h2>
+        <div class="form">
+            <label for="code">Tasdiqlash kodi</label>
+            <input type="text" id="code" placeholder="Kodni kiriting" maxlength="4">
+            <button onclick="checkCode()">Tasdiqlash</button>
+            <p id="message" class="message"></p>
+        </div>
+    </div>
+
+    <script>
+        function checkCode() {
+            const code = document.getElementById('code').value;
+            const message = document.getElementById('message');
+            message.textContent = '';
+
+            if (!/^\d{4}$/.test(code)) {
+                message.textContent = 'Kod 4 ta raqamdan iborat bo‘lishi kerak.';
+            } else if (code !== '9704') {
+                message.textContent = 'Kod noto‘g‘ri.';
+            } else {
+                window.open('sertificate.pdf', '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
